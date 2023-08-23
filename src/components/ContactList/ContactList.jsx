@@ -1,10 +1,13 @@
-import { useDispatch } from 'react-redux';
+//import { useDispatch } from 'react-redux';
 import { Ul, Li, Text } from './ContactList.styled';
 //import { deleteContact } from 'components/Redux/contactsSlice';
-import { useSelector } from 'react-redux';
-import { selectVisibleContacts } from 'components/Redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectVisibleContacts } from 'components/Redux/contacts/selectors';
 import { useEffect } from 'react';
-import { fetchContacts, deleteContact } from 'components/Redux/operations';
+import {
+  fetchContacts,
+  deleteContact,
+} from 'components/Redux/contacts/operations';
 export const ContactList = () => {
   const dispatch = useDispatch();
 
@@ -17,10 +20,10 @@ export const ContactList = () => {
   return (
     <Ul>
       {contacts &&
-        contacts.map(({ name, id, phone }) => (
+        contacts.map(({ name, id, number }) => (
           <Li key={id}>
             <Text>
-              {name} tel: <span> {phone}</span>
+              {name} tel: <span> {number}</span>
             </Text>
 
             <button
@@ -29,6 +32,13 @@ export const ContactList = () => {
               onClick={() => dispatch(deleteContact(id))}
             >
               Delete
+            </button>
+            <button
+              type="button"
+              name="delete"
+              //  onClick={() => dispatch(deleteContact(id))}
+            >
+              Edite
             </button>
           </Li>
         ))}

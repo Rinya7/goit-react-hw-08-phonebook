@@ -1,15 +1,15 @@
-import { nanoid } from 'nanoid';
+//import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../Redux/operations';
+import { addContact } from '../Redux/contacts/operations';
 
 import { Form, FildInput, Label, Button, Div } from './ContactsForm.styled';
-import { selectVisibleContacts } from 'components/Redux/selectors';
+import { selectVisibleContacts } from 'components/Redux/contacts/selectors';
 const { useState } = require('react');
 
 export function ContactsForm() {
   const contacts = useSelector(selectVisibleContacts);
   const [name, setName] = useState('');
-  const [phone, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
   const handleChange = evt => {
@@ -18,7 +18,7 @@ export function ContactsForm() {
       case 'name':
         setName(value);
         break;
-      case 'phone':
+      case 'number':
         setNumber(value);
         break;
 
@@ -33,17 +33,17 @@ export function ContactsForm() {
       const simpleContact = contacts.find(
         contact =>
           contact.name.toLocaleLowerCase() === name.toLocaleLowerCase() ||
-          contact.phone === phone
+          contact.number === number
       );
       if (simpleContact) {
-        return alert(`${name} or ${phone} is already in contacts`);
+        return alert(`${name} or ${number} is already in contacts`);
       }
     }
 
     const contact = {
-      id: nanoid(),
+      //  id: nanoid(),
       name: name,
-      phone: phone,
+      number: number,
     };
     dispatch(addContact(contact));
     setName('');
@@ -68,8 +68,8 @@ export function ContactsForm() {
         <Label htmlFor="Number">Number</Label>
         <FildInput
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
