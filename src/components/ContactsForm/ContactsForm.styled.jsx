@@ -1,23 +1,26 @@
 import styled from '@emotion/styled';
 
 export const Form = styled.form`
-  padding: 48px;
-  margin: 0px auto;
-  width: 100%;
-  max-width: 448px;
-  background: white;
-  border-radius: 4px;
-  box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
-    rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  padding: 32px;
 `;
 
 export const FildInput = styled.input`
   display: block;
+  width: -webkit-fill-available;
   font-size: 16px;
-  ${'' /*line-height: 28px;*/}
   padding: 8px 16px;
-  width: 100%;
-  ${'' /*min-height: 44px;*/}
   border: unset;
   border-radius: 4px;
   outline-color: rgb(84 105 212 / 0.5);

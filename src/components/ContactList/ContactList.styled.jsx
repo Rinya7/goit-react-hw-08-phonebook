@@ -20,7 +20,7 @@ export const Li = styled.li`
   box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px;
 `;
 
-export const Text = styled.p`
-  display: inline-flex;
-  margin: 10px 0;
-`;
+//export const Text = styled.p`
+//  display: inline-flex;
+//  margin: 10px 0;
+//`;

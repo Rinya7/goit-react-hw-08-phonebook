@@ -1,12 +1,11 @@
 //import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../Redux/contacts/operations';
-
 import { Form, FildInput, Label, Button, Div } from './ContactsForm.styled';
 import { selectVisibleContacts } from 'components/Redux/contacts/selectors';
 const { useState } = require('react');
 
-export function ContactsForm() {
+export default function ContactsForm() {
   const contacts = useSelector(selectVisibleContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -41,7 +40,6 @@ export function ContactsForm() {
     }
 
     const contact = {
-      //  id: nanoid(),
       name: name,
       number: number,
     };
