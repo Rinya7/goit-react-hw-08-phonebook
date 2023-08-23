@@ -13,7 +13,7 @@ export default function ImgMediaCard({ name, id, number }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardContent>
-        <img src={foto} alt="foto" width={345}></img>
+        <img src={foto} alt="foto" width={313}></img>
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>

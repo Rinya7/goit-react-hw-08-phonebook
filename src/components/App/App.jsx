@@ -5,14 +5,12 @@ import { Home } from 'pages/Home/Home';
 import Contacts from '../../pages/Contacts/Contacts';
 import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
-//import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { useDispatch } from 'react-redux';
 import { refreshUser } from 'components/Redux/auth/operation';
 import { useEffect } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
-//import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 
 export const App = () => {
   const dispatch = useDispatch();

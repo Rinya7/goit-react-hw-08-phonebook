@@ -1,8 +1,11 @@
 //import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../Redux/contacts/operations';
-import { Form, FildInput, Label, Button, Div } from './ContactsForm.styled';
+import { Form, FildInput, Label, Div } from './ContactsForm.styled';
 import { selectVisibleContacts } from 'components/Redux/contacts/selectors';
+import Button from '@mui/material/Button';
+import Modal from '@mui/material/Modal';
+//import ContactsForm from 'components/ContactsForm/ContactsForm';
 const { useState } = require('react');
 
 export default function ContactsForm() {
@@ -10,6 +13,9 @@ export default function ContactsForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleChange = evt => {
     const { name, value } = evt.currentTarget;
@@ -46,36 +52,47 @@ export default function ContactsForm() {
     dispatch(addContact(contact));
     setName('');
     setNumber('');
+    handleClose();
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Div>
-        <Label htmlFor="Name">Name</Label>
-        <FildInput
-          type="text"
-          name="name"
-          value={name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-          onChange={handleChange}
-        />
-      </Div>
-      <Div>
-        <Label htmlFor="Number">Number</Label>
-        <FildInput
-          type="tel"
-          name="number"
-          value={number}
-          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-          onChange={handleChange}
-        />
-      </Div>
+    <>
+      <Button onClick={handleOpen}>Add contact</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Form onSubmit={handleSubmit}>
+          <Div>
+            <Label htmlFor="Name">Name</Label>
+            <FildInput
+              type="text"
+              name="name"
+              value={name}
+              pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+              onChange={handleChange}
+            />
+          </Div>
+          <Div>
+            <Label htmlFor="Number">Number</Label>
+            <FildInput
+              type="tel"
+              name="number"
+              value={number}
+              pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              required
+              onChange={handleChange}
+            />
+          </Div>
 
-      <Button type="submit">Add contact</Button>
-    </Form>
+          <Button type="submit">Add contact</Button>
+        </Form>
+      </Modal>
+    </>
   );
 }
