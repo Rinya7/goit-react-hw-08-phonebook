@@ -10,3 +10,8 @@ export const AddCont = styled(NavLink)`
 export const Div = styled.div`
   display: inline-block;
 `;
+
+export const Loaders = styled.div`
+  justify-content: center;
+  display: flex;
+`;

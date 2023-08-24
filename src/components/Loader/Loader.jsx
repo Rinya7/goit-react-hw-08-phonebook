@@ -12,6 +12,7 @@ const Loader = () => {
       wrapperStyle=""
       visible={true}
       display="block"
+      justifyContent="center"
     />
   );
 };
