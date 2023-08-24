@@ -1,6 +1,7 @@
-import { Input } from '@chakra-ui/react';
+//import { Input } from '@chakra-ui/react';
 import { signUp } from 'components/Redux/auth/operation';
 import { useDispatch } from 'react-redux';
+import { Form, FildInput, Label, Button, Div } from './Register.styled';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -18,25 +19,30 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="inputName">Name</label>
-        <Input name="name" type="text" placeholder="name" id="inputName" />
-      </div>
-      <div>
-        <label htmlFor="inputEmail">Email address</label>
-        <Input name="email" type="email" id="inputEmail" placeholder="email" />
-      </div>
-      <div>
-        <label htmlFor="inputPassword">Password</label>
-        <Input
+    <Form onSubmit={handleSubmit}>
+      <Div>
+        <Label htmlFor="inputName">Name</Label>
+        <FildInput name="name" type="text" placeholder="name" id="inputName" />
+      </Div>
+      <Div>
+        <Label htmlFor="inputEmail">Email address</Label>
+        <FildInput
+          name="email"
+          type="email"
+          id="inputEmail"
+          placeholder="email"
+        />
+      </Div>
+      <Div>
+        <Label htmlFor="inputPassword">Password</Label>
+        <FildInput
           name="password"
           type="password"
           id="inputPassword"
           placeholder="password"
         />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+      </Div>
+      <Button type="submit">Submit</Button>
+    </Form>
   );
 }

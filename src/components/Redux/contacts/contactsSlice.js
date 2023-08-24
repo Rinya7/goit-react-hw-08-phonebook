@@ -3,7 +3,7 @@ import {
   fetchContacts,
   addContact,
   deleteContact,
-  //  updateContact,
+  updateContact,
 } from './operations';
 
 const contactsSlice = createSlice({
@@ -35,7 +35,7 @@ const contactsSlice = createSlice({
       state.isLoading = true;
     },
     [addContact.fulfilled](state, action) {
-      state.items.push(action.payload);
+      state.items.unshift(action.payload);
       state.isLoading = false;
     },
 
@@ -61,18 +61,19 @@ const contactsSlice = createSlice({
 
     //=========================================
 
-    //[updateContact.pending](state) {
-    //  state.isLoading = true;
-    //},
-    //[updateContact.fulfilled](state, action) {
-    //  state.items = state.items.filter(item => item.id !== action.payload.id);
-    //  state.isLoading = false;
-    //},
+    [updateContact.pending](state) {
+      state.isLoading = true;
+    },
+    [updateContact.fulfilled](state, action) {
+      state.items = state.items.filter(item => item.id !== action.payload.id);
+      state.items.unshift(action.payload);
+      state.isLoading = false;
+    },
 
-    //[updateContact.rejected](state, action) {
-    //  state.error = action.payload;
-    //  state.isLoading = false;
-    //},
+    [updateContact.rejected](state, action) {
+      state.error = action.payload;
+      state.isLoading = false;
+    },
   },
 });
 

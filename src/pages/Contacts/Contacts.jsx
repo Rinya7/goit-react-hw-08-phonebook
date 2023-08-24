@@ -1,11 +1,13 @@
 import ContactList from 'components/ContactList/ContactList';
 import { Div } from './Contacts.styled';
-import ContactsForm from 'components/ContactsForm/ContactsForm';
+import AddContact from 'components/AddContact/AddContact';
+import { Filter } from 'components/Filter/Filter';
 
-export default function Home() {
+export default function Contacts() {
   return (
     <Div>
-      <ContactsForm></ContactsForm>
+      <AddContact></AddContact>
+      <Filter></Filter>
       <ContactList></ContactList>
     </Div>
   );

@@ -1,6 +1,9 @@
 import { logOut } from 'components/Redux/auth/operation';
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
+import { Span } from './UserMenu.styled';
+//import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -9,10 +12,16 @@ export const UserMenu = () => {
 
   return (
     <div>
-      <span>Добро пожаловать, {user.name}</span>
-      <button type="button" onClick={handleLogOut}>
+      <Span>Добро пожаловать, {user.name}</Span>
+      <Button
+        type="button"
+        onClick={handleLogOut}
+        variant="outlined"
+        color="error"
+        size="small"
+      >
         Logout
-      </button>
+      </Button>
     </div>
   );
 };

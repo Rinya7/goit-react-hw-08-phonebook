@@ -1,6 +1,20 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
+export const Section = styled.section`
+  width: 650px;
+  padding: 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.02em;
+`;
+
 export const Header = styled.header`
   display: flex;
   justify-content: space-between;

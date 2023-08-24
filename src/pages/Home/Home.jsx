@@ -1,19 +1,13 @@
-import { useAuth } from 'hooks/useAuth';
-import { Link } from 'react-router-dom';
+import { Section, H1 } from './Home.styled';
+import foto from '../../data/foto.jpg';
 
 export const Home = () => {
-  const { isLogged } = useAuth();
   return (
-    <div>
-      <h2>Make you PhoneBook</h2>
-      {!isLogged && (
-        <>
-          <Link to="/register">Regestartion</Link>
-          <br />
-          <br />
-          <Link to="/login">Login</Link>
-        </>
-      )}
-    </div>
+    <Section>
+      <H1>Make your PhoneBook</H1>
+      <div>
+        <img src={foto} alt="foto" width={500}></img>
+      </div>
+    </Section>
   );
 };

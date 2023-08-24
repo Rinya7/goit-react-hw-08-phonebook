@@ -7,11 +7,6 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   justify-content: space-between;
   display: flex;
-
+  margin: 10px 0;
   box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px;
 `;
-
-//export const Text = styled.p`
-//  display: inline-flex;
-//  margin: 10px 0;
-//`;

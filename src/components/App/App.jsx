@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { PrivateRoute } from 'components/PrivateRoute';
+import { Footer } from 'components/Footer/Footer';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ export const App = () => {
           {/*<Route exact path="addition" element={<ContactsForm />}></Route>*/}
         </Route>
       </Routes>
+      <Footer></Footer>
     </Container>
   );
 };

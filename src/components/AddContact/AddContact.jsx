@@ -1,21 +1,20 @@
 //import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../Redux/contacts/operations';
-import { Form, FildInput, Label, Div } from './ContactsForm.styled';
+import { Form, FildInput, Label, Div } from './AddContact.styled';
 import { selectVisibleContacts } from 'components/Redux/contacts/selectors';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-//import ContactsForm from 'components/ContactsForm/ContactsForm';
 const { useState } = require('react');
 
 export default function ContactsForm() {
   const contacts = useSelector(selectVisibleContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
 
   const handleChange = evt => {
     const { name, value } = evt.currentTarget;
@@ -56,8 +55,15 @@ export default function ContactsForm() {
   };
 
   return (
-    <>
-      <Button onClick={handleOpen}>Add contact</Button>
+    <Div>
+      <Button
+        onClick={handleOpen}
+        variant="contained"
+        color="success"
+        size="small"
+      >
+        Add contact
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -65,6 +71,7 @@ export default function ContactsForm() {
         aria-describedby="modal-modal-description"
       >
         <Form onSubmit={handleSubmit}>
+          <h2>Add contact</h2>
           <Div>
             <Label htmlFor="Name">Name</Label>
             <FildInput
@@ -90,9 +97,16 @@ export default function ContactsForm() {
             />
           </Div>
 
-          <Button type="submit">Add contact</Button>
+          <Button
+            type="submit"
+            variant="contained"
+            color="success"
+            size="small"
+          >
+            Add contact
+          </Button>
         </Form>
       </Modal>
-    </>
+    </Div>
   );
 }
