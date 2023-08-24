@@ -38,9 +38,9 @@ export const Label = styled.label`
   margin-bottom: 20px;
 `;
 
-export const Buttons = styled.button`
-  margin-top: 20px;
-`;
+//export const Buttons = styled.button`
+//  margin-top: 20px;
+//`;
 
 export const Div = styled.div`
   margin: 40px 0;

@@ -1,13 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { fetchContacts, updateContact } from '../Redux/contacts/operations';
-import {
-  Form,
-  FildInput,
-  Label,
-  Div,
-  DivBtn,
-  Buttons,
-} from './UpdateContact.styled';
+import { Form, FildInput, Label, Div, DivBtn } from './UpdateContact.styled';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
@@ -60,7 +53,6 @@ export const UpdateContact = ({ id }) => {
         size="small"
         color="success"
         variant="contained"
-        
       >
         Edit
       </Button>
