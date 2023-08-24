@@ -35,6 +35,8 @@ export default function ContactCard({ name, id, number }) {
           <Button
             size="small"
             color="error"
+            variant="contained"
+            width="100"
             onClick={() => dispatch(deleteContact(id))}
           >
             {' '}

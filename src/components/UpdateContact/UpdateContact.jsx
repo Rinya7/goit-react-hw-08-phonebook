@@ -55,8 +55,14 @@ export const UpdateContact = ({ id }) => {
 
   return (
     <DivBtn>
-      <Button onClick={handleOpen} size="small" color="success">
-        Edit Contact
+      <Button
+        onClick={handleOpen}
+        size="small"
+        color="success"
+        variant="contained"
+        
+      >
+        Edit
       </Button>
       <Modal
         open={openNew}
