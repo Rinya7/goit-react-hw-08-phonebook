@@ -22,10 +22,10 @@ export default function ContactCard({ name, id, number }) {
       <Card sx={{ maxWidth: 345 }} variant="outlined">
         <CardContent>
           <img src={foto} alt="foto" width={313}></img>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h4" component="div">
             {name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="poster" color="blue">
             {number}
           </Typography>
         </CardContent>

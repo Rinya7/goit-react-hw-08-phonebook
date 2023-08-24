@@ -38,7 +38,7 @@ export const Label = styled.label`
   margin-bottom: 20px;
 `;
 
-export const Button = styled.button`
+export const Buttons = styled.button`
   margin-top: 20px;
 `;
 
