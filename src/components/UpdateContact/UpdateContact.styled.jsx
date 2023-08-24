@@ -45,3 +45,7 @@ export const Button = styled.button`
 export const Div = styled.div`
   margin: 40px 0;
 `;
+
+export const DivBtn = styled.div`
+  margin: 0;
+`;

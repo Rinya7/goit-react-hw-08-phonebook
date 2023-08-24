@@ -11,6 +11,7 @@ import {
 } from 'components/Redux/contacts/operations';
 import foto from '../../data/foto.jpg';
 import { UpdateContact } from 'components/UpdateContact/UpdateContact';
+import { Div } from './ContactCard.styled';
 
 export default function ContactCard({ name, id, number }) {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export default function ContactCard({ name, id, number }) {
             {number}
           </Typography>
         </CardContent>
-        <div>
+        <Div>
           <UpdateContact id={id}></UpdateContact>
 
           <Button
@@ -39,7 +40,7 @@ export default function ContactCard({ name, id, number }) {
             {' '}
             delete
           </Button>
-        </div>
+        </Div>
       </Card>
     </>
   );
