@@ -12,7 +12,7 @@ export const UserMenu = () => {
 
   return (
     <div>
-      <Span>Добро пожаловать, {user.name}</Span>
+      <Span>Welcome, {user.name}</Span>
       <Button
         type="button"
         onClick={handleLogOut}
